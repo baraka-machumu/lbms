@@ -102,6 +102,18 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                         "icon" => "table",
                                         "items" => [
                                             [
+                                                "label" => "Record new Order",
+                                                "url" => ["orders/create"],
+                                                "badge" => "new",
+                                                "badgeOptions" => ["class" => "label-success"],
+                                            ],
+                                            [
+                                                    "label" => "Ordered Items",
+                                                    "url" =>["orders/ordered"],
+//                                                     "badge" =>"ordered",
+                                                     "badgeOptions" =>["class" => "label-success"],
+                                            ],
+                                            [
                                                 "label" => "Record new purchase",
                                                 "url" => ["leader/create"],
                                                 "badge" => "new",
@@ -110,6 +122,8 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                             [
                                                 "label" => "View purchase per day",
                                                 "url" => ["leader/viewl"],
+                                                "badge" =>"new",
+                                                "badgeOptions" =>["class" => "label-success"],
 
 
                                             ],
