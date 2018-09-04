@@ -23,7 +23,7 @@ use kartik\tabs\TabsX;
     ],
     [
         'label' =>'<i class="glyphicon glyphicon-pencil"></i> 3.Add Item',
-        'content' => $this->render('add_item',['models'=>$models, 'tbdata_add'=>$tbdata_add,'item_name'=>$item_name]),
+        'content' => $this->render('add_item',['models'=>$models, 'tbdata_add'=>$tbdata_add,'item_name'=>$item_name,'items'=>$items]),
         'active'=> $tab3
     ],
     [

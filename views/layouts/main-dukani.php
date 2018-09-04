@@ -81,7 +81,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                         "items" => [
                                             [
                                                 "label" => "Record new sales",
-                                                "url" => ["leader/create"],
+                                                "url" => ["sales/create"],
                                                 "badge" => "new",
                                                 "badgeOptions" => ["class" => "label-success"],
                                             ],

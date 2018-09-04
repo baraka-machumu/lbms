@@ -23,7 +23,7 @@ use kartik\typeahead\Typeahead;
     <div class="x_panel">
 
         <div class="x_title">
-            <h3>Add  Item(s) For</h3> <b></b>
+            <h3>Add  Item(s) For  <strong><?php //echo $items['item_name']; ?></strong></h3>
             <div class="clearfix"></div>
         </div>
         <div class="x_content">
@@ -38,22 +38,22 @@ use kartik\typeahead\Typeahead;
 
             <div class="col-md-6">
 
-                <?php echo $tbdata_add; ?>
+                <?php //echo $tbdata_add; ?>
             </div>
             <div class="row">
                 <div class="col-xs-12">
 
                     <div class="col-md-10">
-                        <?php $form = ActiveForm::begin(['id'=>'store-adding_item']); ?>
+                        <?php $form = ActiveForm::begin(['id'=>'store-adding_item-form']); ?>
 
                         <div class="col-md-5">
-                        <?= $form->field($models, 'quantity')->textInput(['maxlength' => true]) ?>
-                        <?= $form->field($models, 'cdate')->widget(DatePicker::classname(),[ 'options'=>['id'=>'pstartdate' ],
+                        <?= $form->field($models, 'quantity')->textInput(['maxlength' => true,'readonly' => true]) ?>
+                        <?= $form->field($models, 'cdate')->widget(DatePicker::classname(),[ 'options'=>['id'=>'add-item-date' ],
                             'pluginOptions' => ['autoclose' => true,'format' => 'dd/mm/yyyy','todayHighlight' => true]])
                         ?>
 
                         <div class="form-group">
-                            <?= Html::submitButton('Add '.$item_name, ['class' => 'btn btn-success','name'=>'add_item']) ?>
+                            <?= Html::submitButton('Add '.$item_name, ['class' => 'btn btn-success','name'=>'add-item-btn']) ?>
                         </div>
                         </div>
                         <div class="col-md-5">

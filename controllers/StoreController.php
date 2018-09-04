@@ -386,11 +386,20 @@ class StoreController extends \yii\web\Controller
 
         }
 
+        if (isset($_POST['add-item-btn'])){
+
+        }
+
         return $this->render('tab',
             ['models'=>$models,'tab1'=>$tab1,'tab2'=>$tab2,'tab3'=>$tab3,'tbdata_details'=>$tbdata_details,
                 'tbdata_add'=>$tbdata_add,'item_name'=>$item_name,'item_status'=>$item_status,'items'=>$items]);
     }
 
+    public function  getPurchasedItemDetails(){
+
+
+
+    }
 
 
 }
