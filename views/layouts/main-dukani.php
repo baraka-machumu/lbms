@@ -102,6 +102,18 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                         "icon" => "table",
                                         "items" => [
                                             [
+                                                "label" => "Record new Order",
+                                                "url" => ["orders/create"],
+                                                "badge" => "new",
+                                                "badgeOptions" => ["class" => "label-success"],
+                                            ],
+                                            [
+                                                    "label" => "Ordered Items",
+                                                    "url" =>["orders/ordered"],
+//                                                     "badge" =>"ordered",
+                                                     "badgeOptions" =>["class" => "label-success"],
+                                            ],
+                                            [
                                                 "label" => "Record new purchase",
                                                 "url" => ["leader/create"],
                                                 "badge" => "new",
@@ -110,6 +122,8 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                             [
                                                 "label" => "View purchase per day",
                                                 "url" => ["leader/viewl"],
+                                                "badge" =>"new",
+                                                "badgeOptions" =>["class" => "label-success"],
 
 
                                             ],
@@ -231,10 +245,10 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
         <!-- /page content -->
         <!-- footer content -->
         <footer>
-            <div class="pull-right">
-                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a><br />
-                Extension for Yii framework 2 by <a href="http://yiister.ru" rel="nofollow" target="_blank">Yiister</a>
-            </div>
+<!--            <div class="pull-right">-->
+<!--                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a><br />-->
+<!--                Extension for Yii framework 2 by <a href="http://yiister.ru" rel="nofollow" target="_blank">Yiister</a>-->
+<!--            </div>-->
             <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->

@@ -230,10 +230,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
         <!-- /page content -->
         <!-- footer content -->
         <footer>
-            <div class="pull-right">
-                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a><br />
-                Extension for Yii framework 2 by <a href="http://yiister.ru" rel="nofollow" target="_blank">Yiister</a>
-            </div>
+
             <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
@@ -241,12 +238,12 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
 
 </div>
 
-<div id="custom_notifications" class="custom-notifications dsp_none">
-    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
-    </ul>
-    <div class="clearfix"></div>
-    <div id="notif-group" class="tabbed_notifications"></div>
-</div>
+<!--<div id="custom_notifications" class="custom-notifications dsp_none">-->
+<!--    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">-->
+<!--    </ul>-->
+<!--    <div class="clearfix"></div>-->
+<!--    <div id="notif-group" class="tabbed_notifications"></div>-->
+<!--</div>-->
 <!-- /footer content -->
 <?php $this->endBody(); ?>
 </body>

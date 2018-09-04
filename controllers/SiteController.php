@@ -37,7 +37,7 @@ class SiteController extends Controller
                     ],
                 ],
             ],
-            
+
         ];
     }
 
@@ -64,7 +64,7 @@ class SiteController extends Controller
      * @return string
      */
 
-   
+
  public function actionIndex()
     {
         $model = new User();
@@ -72,9 +72,10 @@ class SiteController extends Controller
        {
            $this->redirect(['site/login']);
        }
-    
-           return $this->render('index',['model'=>$model]);
-        
+
+        return $this->redirect('site/dashboard');
+
+
     }
 
 public function actionCreate(){
@@ -92,7 +93,7 @@ public function actionCreate(){
       }
   }
   return $this->render('index',['model'=>$model]);
-        
+
 
 }
 
@@ -108,11 +109,11 @@ public function actionCreate(){
 
      $this->layout = 'main_login';
 if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
+    return $this->redirect('dashboard');
 
+}
         $model = new LoginForm();
-        
+
 
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
 
@@ -123,7 +124,7 @@ if (!Yii::$app->user->isGuest) {
         $model->password = '';
         return $this->render('login', [
             'model' => $model, ]);
-        
+
     }
 
     public function actionLogout()
@@ -156,14 +157,14 @@ public function actionJson(){
 
     $data =array();
     if ($t==2) {
-        
+
         $arrears =10;
 
         $desc = "UNAZO";
 
     array_push($data, $arrears);
     array_push($data, $desc);
-                       
+
      header('Content-Type: application/json');
     echo json_encode($data);
 
@@ -171,9 +172,9 @@ public function actionJson(){
 
         echo "wrong choice";
     }
- 
 
-  
+
+
 }
 
 }
