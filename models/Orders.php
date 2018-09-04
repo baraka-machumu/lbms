@@ -47,7 +47,7 @@ class Orders extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'itemid' => 'Itemid',
+            'itemid' => 'Item Name',
             'order_date' => 'Order Date',
             'supplier' => 'Supplier',
             'delivery_date' => 'Delivery Date',

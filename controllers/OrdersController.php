@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\models\Orders;
 use Yii;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 class OrdersController extends \yii\web\Controller
 {
@@ -76,23 +78,28 @@ class OrdersController extends \yii\web\Controller
                             </tr>
                         </table>";
                     Yii::$app->session->setFlash('success-order-created', "Order has been added Successful placed");
-
                 }
                 else {
                     Yii::$app->session->setFlash('success-order-fail', "Order could not be placed");
-
                 }
             }
-
             }
 
+            $model->supplier="";
+            $model->order_date="";
+            $model->delivery_date="";
+            $model->itemid="";
+            $model->seller_address="";
+            $model->quantity="";
+            $model->seller_tel_number="";
+            $model->email="";
             return $this->render('create_order', ['model' => $model, 'tborder' => $tborder]);
         }
 
         public function actionOrdered(){
 
              $this->layout ="main-dukani";
-             $query = "SELECT o.supplier, o.order_date, o.delivery_date, s.item_name, o.seller_address, o.quantity, o.seller_tel_number, o.email, o.status FROM orders AS o
+             $query = "SELECT o.id, o.supplier, o.order_date, o.delivery_date, s.item_name, o.seller_address, o.quantity, o.seller_tel_number, o.email, o.status FROM orders AS o
                         INNER JOIN store AS s ON s.id =  o.itemid  WHERE o.status = 0";
              $data  = yii::$app->db->createCommand($query)->queryAll(false);
 
@@ -102,6 +109,7 @@ class OrdersController extends \yii\web\Controller
              $tbdata .="<th>Email Address</th> <th>Status</th><th>Action</th></tr>";
 
              foreach ($data as $orders){
+                 $id=$orders['id'];
                  $supplier = $orders['supplier'];
                  $order_date=$orders['order_date'];
                  $delivery_date=$orders['delivery_date'];
@@ -115,7 +123,13 @@ class OrdersController extends \yii\web\Controller
 
                  $tbdata .="<tr style='color: black'><td>$supplier</td><td>$order_date</td><td>$delivery_date</td>";
                  $tbdata.="<td>$item_name</td><td>$seller_address</td><td>$quantity</td>";
-                 $tbdata.="<td>$seller_tel_number</td><td>$email</td><td>$status</td></tr>";
+                 $tbdata.="<td>$seller_tel_number</td><td>$email</td><td>$status</td><td>".Html::a('<b style="color: yellow">Received</b>',
+                         ['orders/received', 'id' =>$id],
+                         ['class' => 'profile-link'])."</td></tr>";
+
+
+
+
              }
 
              $tbdata.="</table>";
@@ -123,6 +137,26 @@ class OrdersController extends \yii\web\Controller
         return $this->render('ordered_item',['tbdata'=> $tbdata]);
 
 
+
+
         }
+
+      public function actionReceived($id){
+
+
+          $query = Yii::$app->db->createCommand("call selectAllOrders(:id)")
+              ->bindValue(':id' , $id);
+          $success =$query->execute();
+
+          if($success){
+              Yii::$app->session->setFlash('purchased-order-created', "Purchase Successful placed");
+          }
+          else{
+              Yii::$app->session->setFlash('purchased-order-failed', 'Purchased Failed');
+          }
+
+          return $this->redirect(['orders/ordered']);
+      }
+
 
 }

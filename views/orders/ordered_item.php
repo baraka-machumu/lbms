@@ -15,6 +15,7 @@ $form = ActiveForm::begin(['id'=>'create-order']); ?>
 <div role="main">
     <div class="x_panel">
 
+
         <div class="x_title">
             <h2 style="color: black">Ordered Items</h2>
             <div class="clearfix"></div>
@@ -26,6 +27,17 @@ $form = ActiveForm::begin(['id'=>'create-order']); ?>
                     <?php if(Yii::$app->session->hasFlash('success-order')){ ?>
                         <div class="alert alert-success" role="alert">
                             <?php echo Yii::$app->session->getFlash('success-order-created'); ?>
+                        </div>
+                    <?php } ?>
+                    <?php if(Yii::$app->session->hasFlash('purchased-order-created')){ ?>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo Yii::$app->session->getFlash('purchased-order-created'); ?>
+                        </div>
+                    <?php } ?>
+
+                    <?php if(Yii::$app->session->hasFlash('purchased-order-failed')){ ?>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo Yii::$app->session->getFlash('purchased-order-failed'); ?>
                         </div>
                     <?php } ?>
         <table class="table table-striped table-bordered">
