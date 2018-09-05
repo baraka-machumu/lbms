@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=159.65.182.80;dbname=lbms',
+    'dsn' => 'mysql:#;dbname=#',
     'username' => 'root',
-    'password' => 'digData.2018!',
+    'password' => '#',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)
